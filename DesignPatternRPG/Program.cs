@@ -169,12 +169,18 @@ namespace DesignPatternRPG
             character.SetStrategy(strategy);
             character.attackStrategy.Execute();
         }
+
+        static void TestEnhancementSystem()
+        {
+            Console.WriteLine("Testing EnhancementSystem");
+        }
         static void Main(string[] args)
         {
             //TestGameWorld();
             //TestCharacterCreation();
             //TestQuestNotifications();
-            TestCombatSystem();
+            //TestCombatSystem();
+            TestEnhancementSystem();
         }
     }
 }
