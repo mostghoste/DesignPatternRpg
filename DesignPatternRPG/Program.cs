@@ -90,6 +90,9 @@ namespace DesignPatternRPG
                     case 1:
                         factory = new WarriorFactory();
                         break;
+                    case 2:
+                        factory = new MageFactory();
+                        break;
                     default:
                         Console.WriteLine("Something went wrong. Defaulting to Warrior.");
                         factory = new WarriorFactory();
