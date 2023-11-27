@@ -26,7 +26,7 @@ namespace DesignPatternRPG.CharacterCreation
         public override string ToString()
         {
             // Nicely formats all of the character's stats
-            return string.Format("Name - {0}\nHealth - {1}\nMana - {2}\nStrength - {3}\nDefense - {4}", name, health, mana, strength, defense);
+            return string.Format("Name: {0}\nHealth: {1}\nMana: {2}\nStrength: {3}\nDefense: {4}", name, health, mana, strength, defense);
         }
     }
 }
