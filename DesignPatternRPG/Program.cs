@@ -8,7 +8,7 @@ namespace DesignPatternRPG
         {
             Console.WriteLine("Begining program.");
 
-            Console.WriteLine(GameWorldInstance.Instance.RenderMap());
+            Console.WriteLine(GameWorldInstance.RenderMap());
 
             Console.WriteLine("Ending program.");
         }
