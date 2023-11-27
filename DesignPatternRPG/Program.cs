@@ -194,6 +194,25 @@ namespace DesignPatternRPG
             Console.WriteLine("\nEnhanced the sword again: " + sword.ToString());
             sword.Use();
             Console.WriteLine("Damage: " + sword.GetDamage());
+
+            // Alright, now let's try a bow instead
+            Item bow = new Bow();
+            Console.WriteLine("\nCreated a bow: " + bow.ToString());
+            bow.Use();
+            Console.WriteLine("Damage: " + bow.GetDamage());
+
+            // Enhance the bow
+            bow = new HurtfulEnhancement(bow);
+            Console.WriteLine("\nEnhanced the bow: " + bow.ToString());
+            bow.Use();
+            Console.WriteLine("Damage: " + bow.GetDamage());
+
+            // Enhance the bow again
+            // Notice that the order of the enhancements matter
+            bow = new FireDamageEnhancement(bow);
+            Console.WriteLine("\nEnhanced the bow again: " + bow.ToString());
+            bow.Use();
+            Console.WriteLine("Damage: " + bow.GetDamage());
         }
         static void Main(string[] args)
         {
