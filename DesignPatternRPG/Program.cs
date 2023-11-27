@@ -141,11 +141,16 @@ namespace DesignPatternRPG
             Console.WriteLine("\nDragon.kill()");
             quest.CompleteQuest();
         }
+
+        static void TestCombatSystem()
+        {
+            Console.WriteLine("Testing CombatSystem");
+        }
         static void Main(string[] args)
         {
             //TestGameWorld();
             //TestCharacterCreation();
-            TestQuestNotifications();
+            //TestQuestNotifications();
         }
     }
 }
