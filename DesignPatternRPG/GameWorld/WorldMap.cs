@@ -25,6 +25,7 @@ namespace DesignPatternRPG.GameWorld
             }
         }
 
+        // This gives up the base map without any NPCs
         public override string ToString()
         {
             string output = "";
