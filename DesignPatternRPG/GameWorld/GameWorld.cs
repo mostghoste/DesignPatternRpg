@@ -37,6 +37,8 @@ namespace DesignPatternRPG.GameWorld
             TimeOfDay = 0;
         }
 
+        // Maybe this function should be in the WorldMap class?
+        // I'm putting it here because it uses both the WorldMap and NPCs list
         public string RenderMap()
         {
             // We add NPC's on top of the map
