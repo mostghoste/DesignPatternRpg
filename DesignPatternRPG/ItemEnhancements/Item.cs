@@ -20,5 +20,10 @@ namespace DesignPatternRPG.ItemEnhancements
         {
             this.name = name;
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
