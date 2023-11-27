@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatternRPG.GameWorld;
+using System;
 //Task: Implement the game world as a Singleton. This ensures that there is only one instance of the game world in the application.
 //Elements to Include:
 
@@ -7,48 +8,30 @@
 //    Global game state variables (e.g., time of day)
 public class GameWorld
 {
-}
+    // The GameWorld singleton stored the world map, a list of NPCs, and global game state variables (e.g., time of day)
+    public WorldMap Map { get; private set; }
+    public List<NPC> NPCs { get; private set; }
+    public int TimeOfDay { get; private set; }
 
-public class WorldMap
-{
-    // The world map is a 2D array of tiles
-    public char[,] _tiles;
-
-    public WorldMap(int width, int height)
+    // Singleton implementation
+    private static GameWorld _instance;
+    public static GameWorld Instance
     {
-        _tiles = new char[width, height];
-
-        // Fill the map with empty tiles
-        for (int y = 0; y < _tiles.GetLength(1); y++)
+        get
         {
-            for (int x = 0; x < _tiles.GetLength(0); x++)
+            if (_instance == null)
             {
-                _tiles[x, y] = '.';
+                _instance = new GameWorld();
             }
+            return _instance;
         }
     }
 
-    public override string ToString()
+    // The constructor is private so that it can only be called from within the class
+    private GameWorld()
     {
-        string output = "";
-        for (int y = 0; y < _tiles.GetLength(1); y++)
-        {
-            for (int x = 0; x < _tiles.GetLength(0); x++)
-            {
-                output += _tiles[x, y];
-            }
-            output += "\n";
-        }
-        return output;
-    }
-
-    public void SetTile(int x, int y, char tile)
-    {
-        _tiles[x, y] = tile;
-    }
-    
-    public char GetTile(int x, int y)
-    {
-        return _tiles[x, y];
+        Map = new WorldMap(20, 10);
+        NPCs = new List<NPC>();
+        TimeOfDay = 0;
     }
 }

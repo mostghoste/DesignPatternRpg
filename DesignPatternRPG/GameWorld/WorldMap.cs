@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatternRPG.GameWorld
 {
-    internal class WorldMap
+    public class WorldMap
     {
         // The world map is a 2D array of tiles
         public char[,] _tiles;
