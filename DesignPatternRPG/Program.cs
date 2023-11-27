@@ -72,6 +72,7 @@ namespace DesignPatternRPG
                     }
                 }
             }
+
             // Prompt for name
             Console.WriteLine("What is your character's name?");
             string? name = Console.ReadLine();
