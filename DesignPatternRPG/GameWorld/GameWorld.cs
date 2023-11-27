@@ -6,32 +6,36 @@ using System;
 //    A world map
 //    A list of NPCs (Non-Player Characters)
 //    Global game state variables (e.g., time of day)
-public class GameWorld
+namespace DesignPatternRPG.GameWorld
 {
-    // The GameWorld singleton stored the world map, a list of NPCs, and global game state variables (e.g., time of day)
-    public WorldMap Map { get; private set; }
-    public List<NPC> NPCs { get; private set; }
-    public int TimeOfDay { get; private set; }
-
-    // Singleton implementation
-    private static GameWorld _instance;
-    public static GameWorld Instance
+    public class GameWorld
     {
-        get
+        // The GameWorld singleton stored the world map, a list of NPCs, and global game state variables (e.g., time of day)
+        public WorldMap Map { get; private set; }
+        public List<NPC> NPCs { get; private set; }
+        public int TimeOfDay { get; private set; }
+
+        // Singleton implementation
+        private static GameWorld _instance;
+        public static GameWorld Instance
         {
-            if (_instance == null)
+            get
             {
-                _instance = new GameWorld();
+                if (_instance == null)
+                {
+                    _instance = new GameWorld();
+                }
+                return _instance;
             }
-            return _instance;
+        }
+
+        // The constructor is private so that it can only be called from within the class
+        private GameWorld()
+        {
+            Map = new WorldMap(20, 10);
+            NPCs = new List<NPC>();
+            TimeOfDay = 0;
         }
     }
 
-    // The constructor is private so that it can only be called from within the class
-    private GameWorld()
-    {
-        Map = new WorldMap(20, 10);
-        NPCs = new List<NPC>();
-        TimeOfDay = 0;
-    }
 }

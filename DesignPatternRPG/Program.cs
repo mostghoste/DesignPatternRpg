@@ -1,4 +1,6 @@
-﻿namespace DesignPatternRPG
+﻿using DesignPatternRPG.GameWorld;
+
+namespace DesignPatternRPG
 {
     internal class Program
     {
