@@ -3,6 +3,7 @@ using DesignPatternRPG.GameWorld;
 using DesignPatternRPG.QuestNotifications;
 using DesignPatternRPG.CombatSystem;
 using DesignPatternRPG.ItemEnhancements;
+using DesignPatternRPG.ActionControls;
 
 namespace DesignPatternRPG
 {
@@ -214,13 +215,19 @@ namespace DesignPatternRPG
             bow.Use();
             Console.WriteLine("Damage: " + bow.GetDamage());
         }
+
+        static void TestActionControls()
+        {
+            Console.WriteLine("Testing Action controls");
+        }
         static void Main(string[] args)
         {
             //TestGameWorld();
             //TestCharacterCreation();
             //TestQuestNotifications();
             //TestCombatSystem();
-            TestEnhancementSystem();
+            //TestEnhancementSystem();
+            TestActionControls();
         }
     }
 }
