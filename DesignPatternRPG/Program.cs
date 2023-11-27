@@ -223,18 +223,20 @@ namespace DesignPatternRPG
             // Create two characters
             Character character1 = new Warrior("Bob the Warrior");
             Character character2 = new Mage("Melissa the Mage");
+            Console.WriteLine("Created two characters: {0} and {1}", character1.name, character2.name);
 
-            // Create a command
-            ICommand command = new AttackCommand(character1, character2);
-
+            // Create the invoker
             CommandInvoker invoker = new CommandInvoker();
 
-            // Set the command
+            // Create, Set and execute the attack command
+            ICommand command = new AttackCommand(character1, character2);
             invoker.SetCommand(command);
-
-            // Execute the command
             invoker.ExecuteCommand();
 
+            // Create, Set and execute the spell command
+            command = new CastSpellCommand(character2, new Spell("Ice Barrage"));
+            invoker.SetCommand(command);
+            invoker.ExecuteCommand();
         }
         static void Main(string[] args)
         {
