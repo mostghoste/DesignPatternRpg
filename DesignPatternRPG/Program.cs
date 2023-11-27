@@ -1,6 +1,7 @@
 ﻿using DesignPatternRPG.CharacterCreation;
 using DesignPatternRPG.GameWorld;
 using DesignPatternRPG.QuestNotifications;
+using DesignPatternRPG.CombatSystem;
 
 namespace DesignPatternRPG
 {
@@ -145,12 +146,35 @@ namespace DesignPatternRPG
         static void TestCombatSystem()
         {
             Console.WriteLine("Testing CombatSystem");
+            // Okay. This test is pretty silly. It doesn't really do anything game-wise, but it does show the strategy pattern.
+            // I don't have enemies as of now, so making a combat system is also pretty pointless.
+            // Maybe I'll change this, but for now, it's just a test of the strategy pattern.
+
+            // Create a character
+            Character character = new Warrior("Bob the Warrior");
+
+            // Create a strategy
+            IStrategy strategy = new AggresiveStrategy();
+
+            // Set the character's strategy
+            character.SetStrategy(strategy);
+
+            // Execute the strategy
+            character.attackStrategy.Execute();
+
+            // Change the strategy
+            strategy = new DefensiveStrategy();
+
+            // Set the character's strategy
+            character.SetStrategy(strategy);
+            character.attackStrategy.Execute();
         }
         static void Main(string[] args)
         {
             //TestGameWorld();
             //TestCharacterCreation();
             //TestQuestNotifications();
+            TestCombatSystem();
         }
     }
 }

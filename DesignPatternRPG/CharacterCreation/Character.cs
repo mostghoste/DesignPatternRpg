@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesignPatternRPG.CombatSystem;
 using DesignPatternRPG.QuestNotifications;
 
 namespace DesignPatternRPG.CharacterCreation
@@ -14,6 +15,7 @@ namespace DesignPatternRPG.CharacterCreation
         public int mana { get; protected set; }
         public int strength { get; protected set; }
         public int defense { get; protected set; }
+        public IStrategy attackStrategy { get; protected set; }
 
         protected Character(string name, int health, int mana, int strength, int defense)
         {
@@ -22,6 +24,15 @@ namespace DesignPatternRPG.CharacterCreation
             this.mana = mana;
             this.strength = strength;
             this.defense = defense;
+            // Default to an aggresive strategy
+            attackStrategy = new AggresiveStrategy();
+        }
+
+        public void SetStrategy(IStrategy strategy)
+        {
+            // Sets the character's strategy
+            attackStrategy = strategy;
+            Console.WriteLine("{0} has switched strategies: {1}!", name, strategy.GetType().Name);
         }
 
         public override string ToString()
