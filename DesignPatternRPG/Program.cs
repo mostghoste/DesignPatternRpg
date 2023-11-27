@@ -71,44 +71,43 @@ namespace DesignPatternRPG
                         Console.WriteLine("Invalid input. Try again.");
                     }
                 }
-
-                // Prompt for name
-                Console.WriteLine("What is your character's name?");
-                string? name = Console.ReadLine();
-                if (name == null || name == "")
-                {
-                    name = "Nameless";
-                }
-
-                // Select the factory based on the user's choice
-                // - IDK, maybe I'm not getting the point of the factory pattern.
-                // - Instead of selecting the factory here, I could just create the character itself with a
-                // - character = new Warrior(name). Feels like that would be simpler.
-                ICharacterFactory factory;
-                switch (choiceInt)
-                {
-                    case 1:
-                        factory = new WarriorFactory();
-                        break;
-                    case 2:
-                        factory = new MageFactory();
-                        break;
-                    case 3:
-                        factory = new ArcherFactory();
-                        break;
-                    default:
-                        Console.WriteLine("Something went wrong. Defaulting to Warrior.");
-                        factory = new WarriorFactory();
-                        break;
-                }
-
-                // Create the character
-                Character character = factory.CreateCharacter(name);
-
-                // Print the character's stats
-                Console.WriteLine("\nHere are your character's stats:");
-                Console.WriteLine(character.ToString());
             }
+            // Prompt for name
+            Console.WriteLine("What is your character's name?");
+            string? name = Console.ReadLine();
+            if (name == null || name == "")
+            {
+                name = "Nameless";
+            }
+
+            // Select the factory based on the user's choice
+            // - IDK, maybe I'm not getting the point of the factory pattern.
+            // - Instead of selecting the factory here, I could just create the character itself with a
+            // - character = new Warrior(name). Feels like that would be simpler.
+            ICharacterFactory factory;
+            switch (choiceInt)
+            {
+                case 1:
+                    factory = new WarriorFactory();
+                    break;
+                case 2:
+                    factory = new MageFactory();
+                    break;
+                case 3:
+                    factory = new ArcherFactory();
+                    break;
+                default:
+                    Console.WriteLine("Something went wrong. Defaulting to Warrior.");
+                    factory = new WarriorFactory();
+                    break;
+            }
+
+            // Create the character
+            Character character = factory.CreateCharacter(name);
+
+            // Print the character's stats
+            Console.WriteLine("\nHere are your character's stats:");
+            Console.WriteLine(character.ToString());
         }
         static void Main(string[] args)
         {
