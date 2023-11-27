@@ -39,13 +39,13 @@ namespace DesignPatternRPG.GameWorld
 
         // Maybe this function should be in the WorldMap class?
         // I'm putting it here because it uses both the WorldMap and NPCs list
-        public static string RenderMap()
+        public string RenderMap()
         {
             // We add NPC's on top of the map
             string output = "";
-            for (int y = 0; y < Instance.Map._tiles.GetLength(1); y++)
+            for (int y = 0; y < Map._tiles.GetLength(1); y++)
             {
-                for (int x = 0; x < Instance.Map._tiles.GetLength(0); x++)
+                for (int x = 0; x < Map._tiles.GetLength(0); x++)
                 {
                     // Check if there is an NPC at this position
                     // Since i'm not very familiar with LINQ, here's how this works:
@@ -54,7 +54,7 @@ namespace DesignPatternRPG.GameWorld
                     // - n is an element of the 'NPCs' list. We define each element as n, and then we check if n's X and Y coordinates match the current X and Y coordinates.
                     // - If the condition is true, the first element matching this condition in the NPC's array is returned.
                     // - If all elements in the array return false, the default value for the type is returned. In this case, the default value for NPC is null.
-                    NPC? npc = Instance.NPCs.FirstOrDefault(n => n.X == x && n.Y == y);
+                    NPC? npc = NPCs.FirstOrDefault(n => n.X == x && n.Y == y);
                     
                     if (npc != null)
                     {
@@ -63,7 +63,7 @@ namespace DesignPatternRPG.GameWorld
                     }
                     else
                     {
-                        output += Instance.Map._tiles[x, y];
+                        output += Map._tiles[x, y];
                     }
                 }
                 output += "\n";
