@@ -219,6 +219,16 @@ namespace DesignPatternRPG
         static void TestActionControls()
         {
             Console.WriteLine("Testing Action controls");
+
+            // Create two characters
+            Character character1 = new Warrior("Bob the Warrior");
+            Character character2 = new Mage("Melissa the Mage");
+
+            // Create a command
+            ICommand command = new AttackCommand(character1, character2);
+
+            // Execute the command
+            command.Execute();
         }
         static void Main(string[] args)
         {

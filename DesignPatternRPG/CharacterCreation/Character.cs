@@ -50,5 +50,11 @@ namespace DesignPatternRPG.CharacterCreation
                 Console.WriteLine("{0} has completed a quest: {1}!", name, questName);
             }
         }
+        
+        // Oh god, am I actually going to have to implement a combat system?
+        public void Attack(Character target)
+        {
+            Console.WriteLine("{0} attacks {1}!", name, target.name);
+        }
     }
 }
