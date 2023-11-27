@@ -227,8 +227,14 @@ namespace DesignPatternRPG
             // Create a command
             ICommand command = new AttackCommand(character1, character2);
 
+            CommandInvoker invoker = new CommandInvoker();
+
+            // Set the command
+            invoker.SetCommand(command);
+
             // Execute the command
-            command.Execute();
+            invoker.ExecuteCommand();
+
         }
         static void Main(string[] args)
         {
