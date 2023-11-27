@@ -56,5 +56,12 @@ namespace DesignPatternRPG.CharacterCreation
         {
             Console.WriteLine("{0} attacks {1}!", name, target.name);
         }
+
+        // We could have the character move around the map
+        // Maybe later
+        public void Move(int deltax, int deltay)
+        {
+            Console.WriteLine("{0} moves {1} spaces to the right and {2} spaces down!", name, deltax, deltay);
+        }
     }
 }

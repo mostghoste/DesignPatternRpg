@@ -237,6 +237,11 @@ namespace DesignPatternRPG
             command = new CastSpellCommand(character2, new Spell("Ice Barrage"));
             invoker.SetCommand(command);
             invoker.ExecuteCommand();
+
+            // Create, Set and execute the move command
+            command = new MoveCommand(character1, 5, 5);
+            invoker.SetCommand(command);
+            invoker.ExecuteCommand();
         }
         static void Main(string[] args)
         {
