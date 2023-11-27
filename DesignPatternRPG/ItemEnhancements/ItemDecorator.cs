@@ -17,5 +17,16 @@ namespace DesignPatternRPG.ItemEnhancements
         {
             this.item = item;
         }
+
+        // The decorator class must override the base class's methods
+        public override void Use()
+        {
+            item.Use();
+        }
+
+        public override int GetDamage()
+        {
+            return item.GetDamage();
+        }
     }
 }

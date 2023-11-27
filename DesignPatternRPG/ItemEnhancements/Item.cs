@@ -21,6 +21,12 @@ namespace DesignPatternRPG.ItemEnhancements
             this.name = name;
         }
 
+        public abstract void Use();
+
+        // While not every item will have damage, this method is used to demonstrate the Decorator pattern
+        // In a real game, this method would be in a "Weapon" class that inherits from Item
+        public abstract int GetDamage();
+
         public override string ToString()
         {
             return name;

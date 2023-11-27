@@ -2,6 +2,7 @@
 using DesignPatternRPG.GameWorld;
 using DesignPatternRPG.QuestNotifications;
 using DesignPatternRPG.CombatSystem;
+using DesignPatternRPG.ItemEnhancements;
 
 namespace DesignPatternRPG
 {
@@ -173,6 +174,26 @@ namespace DesignPatternRPG
         static void TestEnhancementSystem()
         {
             Console.WriteLine("Testing EnhancementSystem");
+            // Here we display that enhancements can be added to items during runtime.
+            // We also display that they can provide additional functionality to the item.
+
+            // Create a sword
+            Item sword = new Sword();
+            Console.WriteLine("Created a sword: " + sword.ToString());
+            sword.Use();
+            Console.WriteLine("Damage: " + sword.GetDamage());
+
+            // Enhance the sword
+            sword = new FireDamageEnhancement(sword);
+            Console.WriteLine("\nEnhanced the sword: " + sword.ToString());
+            sword.Use();
+            Console.WriteLine("Damage: " + sword.GetDamage());
+
+            // What happens if we enhance it with the same enhancement?
+            sword = new FireDamageEnhancement(sword);
+            Console.WriteLine("\nEnhanced the sword again: " + sword.ToString());
+            sword.Use();
+            Console.WriteLine("Damage: " + sword.GetDamage());
         }
         static void Main(string[] args)
         {
