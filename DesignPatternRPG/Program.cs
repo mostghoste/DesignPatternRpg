@@ -2,9 +2,11 @@
 
 namespace DesignPatternRPG
 {
+    // Each of the tests are implemented as a separate function.
+    // To test their functionality, uncomment the function call in the Main function.
     internal class Program
     {
-        static void Main(string[] args)
+        static void TestGameWorld()
         {
             // Create the game world
             // To showcase that it's a singleton, we create two instances of the game world
@@ -31,6 +33,10 @@ namespace DesignPatternRPG
             // Since this is a singleton, otherGameWorld is the same as gameWorld, so it will be affected as well
             Console.WriteLine("Printing tweaked map from otherGameWorld:");
             Console.WriteLine(otherGameWorld.RenderMap());
+        }
+        static void Main(string[] args)
+        {
+            TestGameWorld();
         }
     }
 }
