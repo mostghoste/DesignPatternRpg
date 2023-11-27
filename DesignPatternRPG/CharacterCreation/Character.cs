@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesignPatternRPG.QuestNotifications;
 
 namespace DesignPatternRPG.CharacterCreation
 {
-    internal abstract class Character
+    internal abstract class Character : Observer
     {
         public string name { get; protected set; }
         public int health { get; protected set; }
@@ -27,6 +28,16 @@ namespace DesignPatternRPG.CharacterCreation
         {
             // Nicely formats all of the character's stats
             return string.Format("Name: {0}\nHealth: {1}\nMana: {2}\nStrength: {3}\nDefense: {4}", name, health, mana, strength, defense);
+        }
+
+        public void Update(Subject subject)
+        {
+            // If the subject is a quest, then the character will be notified of the quest's completion
+            if (subject is Quest)
+            {
+                string questName = ((Quest)subject).questName;
+                Console.WriteLine("{0} has completed a quest: {1}!", name, questName);
+            }
         }
     }
 }

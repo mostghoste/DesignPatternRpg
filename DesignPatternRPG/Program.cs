@@ -1,5 +1,6 @@
 ﻿using DesignPatternRPG.CharacterCreation;
 using DesignPatternRPG.GameWorld;
+using DesignPatternRPG.QuestNotifications;
 
 namespace DesignPatternRPG
 {
@@ -110,10 +111,41 @@ namespace DesignPatternRPG
             Console.WriteLine("\nHere are your character's stats:");
             Console.WriteLine(character.ToString());
         }
+
+        static void TestQuestNotifications()
+        {
+            Console.WriteLine("Testing QuestNotifications");
+
+            // Create three characters
+            Character character1 = new Warrior("Bob the Warrior");
+            Character character2 = new Mage("Melissa the Mage");
+            Character character3 = new Archer("Lazybutt the Archer");
+
+            // Print the characters' names
+            Console.WriteLine("\nThese are our heroes:");
+            Console.WriteLine(character1.name);
+            Console.WriteLine(character2.name);
+            Console.WriteLine(character3.name);
+
+            // Create a quest
+            Console.WriteLine("\nLooks like there is a new quest!");
+            Quest quest = new Quest("Kill the dragon", "Kill the dragon in the cave");
+            Console.WriteLine(quest.ToString());
+
+            // Subscribe the characters to the quest
+            Console.WriteLine("\nSome of our heroes have accepted the quest! (Looks like the archer isn't going...)");
+            quest.Attach(character1);
+            quest.Attach(character2);
+
+            // Complete the quest
+            Console.WriteLine("\nDragon.kill()");
+            quest.CompleteQuest();
+        }
         static void Main(string[] args)
         {
             //TestGameWorld();
-            TestCharacterCreation();
+            //TestCharacterCreation();
+            TestQuestNotifications();
         }
     }
 }
